@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeetCode Sheet Sync</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <h1>LeetCode Sheet Sync</h1>
+      <p class="subtitle">Send accepted submissions to Google Sheet</p>
+
+      <label class="row toggle-row">
+        <span>Enable Uploads</span>
+        <input id="enabled" type="checkbox" />
+      </label>
+
+      <label class="stack" for="username">
+        <span>User name / profile label</span>
+        <input
+          id="username"
+          type="text"
+          placeholder="e.g. shobi or profile-1"
+          autocomplete="off"
+        />
+      </label>
+
+      <div class="hint-row">
+        <span>Sheet tab:</span>
+        <strong id="sheetNamePreview">-</strong>
+      </div>
+
+      <label class="stack" for="endpointUrl">
+        <span>Google Apps Script Web App URL</span>
+        <input
+          id="endpointUrl"
+          type="url"
+          placeholder="https://script.google.com/macros/s/.../exec"
+          autocomplete="off"
+        />
+      </label>
+
+      <section class="stack">
+        <span>Fields to send</span>
+        <div id="fields" class="field-grid"></div>
+      </section>
+
+      <div class="actions">
+        <button id="saveBtn" type="button">Save</button>
+      </div>
+
+      <section class="status" id="statusBox">
+        <strong>Status:</strong>
+        <p id="statusText">Loading...</p>
+        <p id="queueText"></p>
+      </section>
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
