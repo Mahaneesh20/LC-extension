@@ -202,16 +202,12 @@
   }
 
   function attachDomFallback() {
-    var check = function () {
-      var recentSubmit = Date.now() - lastSubmissionSignalAt < 10 * 60 * 1000;
+    var addButton = function () {
       ensureManualUploadButton();
-      if (recentSubmit && hasVisibleAcceptedMarker()) {
-        sendAcceptedEvent("dom");
-      }
     };
 
     domObserver = new MutationObserver(function () {
-      check();
+      addButton();
     });
 
     domObserver.observe(document.documentElement, {
@@ -220,7 +216,7 @@
       attributes: false
     });
 
-    setInterval(check, 4000);
+    setInterval(addButton, 4000);
   }
 
   function init() {
